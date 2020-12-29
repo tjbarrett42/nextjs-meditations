@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import React from 'react'
+import { Container, Row, Col } from 'react-bootstrap'
 
 import { getSortedBooksData } from '../lib/books'
 
@@ -26,19 +28,34 @@ export default function Home({ allBooksData }) {
         </section>
         <section>
             <h2>Books</h2>
-            <ul>
-                {allBooksData.map(({ id, title, subtitle }) => (
-                    <li key={id}>
-                        <Link href={`/books/${id}`}>
-                            <a>{title}</a>
-                        </Link>
-                        <br />
-                        <small >
-                            <p>Subtitle</p>
-                        </small>
-                    </li>
-                ))}
-            </ul>
+            <Container>
+                <Row>
+                    {allBooksData.map(({ id, title, subtitle }) => (
+                        <Col key={id}>
+                            <Link href={`/books/${id}`}>
+                                <a>{title}</a>
+                            </Link>
+                            <br />
+                            <small >
+                                <p>{subtitle}</p>
+                            </small>
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
+            {/*<ul>*/}
+            {/*    {allBooksData.map(({ id, title, subtitle }) => (*/}
+            {/*        <li key={id}>*/}
+            {/*            <Link href={`/books/${id}`}>*/}
+            {/*                <a>{title}</a>*/}
+            {/*            </Link>*/}
+            {/*            <br />*/}
+            {/*            <small >*/}
+            {/*                <p>{subtitle}</p>*/}
+            {/*            </small>*/}
+            {/*        </li>*/}
+            {/*    ))}*/}
+            {/*</ul>*/}
         </section>
     </Layout>
   )
