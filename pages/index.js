@@ -1,9 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 
 import { getSortedBooksData } from '../lib/books'
 
@@ -31,14 +32,8 @@ export default function Home({ allBooksData }) {
             <Container>
                 <Row>
                     {allBooksData.map(({ id, title, subtitle }) => (
-                        <Col key={id}>
-                            <Link href={`/books/${id}`}>
-                                <a>{title}</a>
-                            </Link>
-                            <br />
-                            <small >
-                                <p>{subtitle}</p>
-                            </small>
+                        <Col xs="6" lg="4" key={id}>
+                            <Button href={`/books/${id}`} className="btn-primary" block="false">{title}</Button>
                         </Col>
                     ))}
                 </Row>

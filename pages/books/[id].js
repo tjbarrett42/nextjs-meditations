@@ -1,4 +1,5 @@
 import utilStyles from '../../styles/utils.module.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from '../../components/layout'
 import Head from 'next/head'
 import { getAllBookIds, getBookData } from '../../lib/books'
