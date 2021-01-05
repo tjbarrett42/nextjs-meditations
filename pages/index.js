@@ -37,7 +37,7 @@ export default function Home({ allBooksData }) {
             <Row>
                 {allBooksData.map(({ id, title, subtitle }) => (
                     <Col xs="6" lg="4" key={id}>
-                        <Button href={`/books/${id}`} className="btn-primary" block="false">{title}</Button>
+                        <Button href={`/books/${id}`} variant="outline-dark" className="mt-2" block="false">{title}</Button>
                     </Col>
                 ))}
             </Row>
